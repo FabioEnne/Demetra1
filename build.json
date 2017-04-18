@@ -1,0 +1,11 @@
+﻿{
+  "android": {
+    "release": {
+      "keystore": "C:\\Program Files (x86)\\Java\\jre1.8.0_111\\bin\\my-release-key.keystore",
+      "storePassword": "Cc02021984",
+      "alias": "alias_name",
+      "password": "Cc02021984",
+      "keystoreType": ""
+    }
+  }
+}
