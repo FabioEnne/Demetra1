@@ -13,9 +13,11 @@ export class HomePage {
   chat_input:string;
   chats = [];
   prova = [];
+  slideValueBadge = [];
 
 
   constructor(public navCtrl: NavController) {
+      var a;
       this.socket = io('http://localhost:3000');
 
    this.socket.on('message', (msg) => {
@@ -27,6 +29,11 @@ export class HomePage {
        console.log("msgProva", msgProva);
        this.prova.push(msgProva);
    });
+
+   this.socket.on('sValue', (value) => {
+       this.slideValueBadge.push(value);
+       console.log("sliderValue:", value);
+   });
   }
 
   send(msg) {
@@ -34,6 +41,10 @@ export class HomePage {
             this.socket.emit('message', msg);
         }
         this.chat_input = '';
-    }
+  }
+  cValue(event, nome) {
+      console.log("SliderValue", event._valA);
+      this.socket.emit('sValue', event._valA);
+  }
 }
 
