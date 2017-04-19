@@ -12,14 +12,21 @@ export class HomePage {
   socket:any
   chat_input:string;
   chats = [];
+  prova = [];
+
 
   constructor(public navCtrl: NavController) {
-      this.socket = io('http://192.168.1.5:3000');
+      this.socket = io('http://localhost:3000');
 
-    this.socket.on('message', (msg) => {
-      console.log("message", msg);
-      this.chats.push(msg);
-    });
+   this.socket.on('message', (msg) => {
+     console.log("message", msg);
+     this.chats.push(msg);
+   });
+
+   this.socket.on('prova', (msgProva) => {
+       console.log("msgProva", msgProva);
+       this.prova.push(msgProva);
+   });
   }
 
   send(msg) {
@@ -29,3 +36,4 @@ export class HomePage {
         this.chat_input = '';
     }
 }
+
