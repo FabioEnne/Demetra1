@@ -1,6 +1,6 @@
 ﻿<ion-content padding>
   <ion-item>
-    <ion-range [(ngModel)]="brightness" (ionChange)="cValue($event, 'slider1')">
+    <ion-range [(ngModel)]="rangeSettings" (ionChange)="cValue($event, 'slider1')" pin="true">
       <ion-icon range-left small name="water"></ion-icon>
       <ion-icon range-right name="water"></ion-icon>
     </ion-range>

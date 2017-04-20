@@ -2,7 +2,7 @@
 
 import { NavController } from 'ionic-angular';
 import * as io from 'socket.io-client';
-
+var a;
 
 @Component({
   selector: 'page-home',
@@ -13,20 +13,22 @@ export class HomePage {
   chat_input:string;
   chats = [];
   prova = [];
+  rangeSettings:number;
   slideValueBadge = [];
 
 
   constructor(public navCtrl: NavController) {
-      var a;
-      this.socket = io('http://localhost:3000');
-
-   this.socket.on('message', (msg) => {
+   
+   this.socket = io('http://localhost:3000');
+      this.socket.on('message', (msg) => {
      console.log("message", msg);
      this.chats.push(msg);
    });
 
    this.socket.on('prova', (msgProva) => {
        console.log("msgProva", msgProva);
+       a = msgProva;
+       this.rangeSettings = msgProva;
        this.prova.push(msgProva);
    });
 
