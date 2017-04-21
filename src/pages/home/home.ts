@@ -34,6 +34,7 @@ export class HomePage {
 
    this.socket.on('sValue', (value) => {
        this.slideValueBadge.push(value);
+       this.rangeSettings = value;
        console.log("sliderValue:", value);
    });
   }

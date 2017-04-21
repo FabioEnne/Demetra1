@@ -1,12 +1,28 @@
-﻿<ion-content padding>
-  <ion-item>
-    <ion-range [(ngModel)]="rangeSettings" (ionChange)="cValue($event, 'slider1')" pin="true">
-      <ion-icon range-left small name="water"></ion-icon>
-      <ion-icon range-right name="water"></ion-icon>
-    </ion-range>
-  </ion-item>
-  Flusso d'acqua
-  <ion-badge color="secondary">{{slideValueBadge[slideValueBadge.length -1]}}</ion-badge>
+﻿
+  <ion-header>
+      <ion-item>
+      <ion-avatar item-left>
+        <img src="resources/android/icon/drawable-ldpi-icon.png">
+      </ion-avatar>
+      <h2>DEMETRA</h2>
+      <p>Smart irrigation system</p>
+      </ion-item>
+  </ion-header>
+  <ion-content class="outer-content">
+    <ion-list>
+      <ion-list-header>
+        Flusso d'acqua
+      </ion-list-header>
+      <ion-badge color="secondary">{{slideValueBadge[slideValueBadge.length -1]}}</ion-badge>
+      <ion-item>
+        <ion-range [(ngModel)]="rangeSettings" (ionChange)="cValue($event, 'slider1')" pin="true">
+          <ion-icon range-left small name="water"></ion-icon>
+          <ion-icon range-right name="water"></ion-icon>
+        </ion-range>
+
+      </ion-item>
+    </ion-list>
+    
     <ion-list>
       <ion-item *ngFor="let message of chats">{{message}}</ion-item>
     </ion-list>
