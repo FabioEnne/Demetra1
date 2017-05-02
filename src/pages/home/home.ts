@@ -3,7 +3,7 @@
 import { NavController } from 'ionic-angular';
 import * as io from 'socket.io-client';
 var a;
-
+var b;
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -19,7 +19,7 @@ export class HomePage {
 
   constructor(public navCtrl: NavController) {
    
-   this.socket = io('http://localhost:3000');
+   this.socket = io('http://192.168.1.3:3000');
       this.socket.on('message', (msg) => {
      console.log("message", msg);
      this.chats.push(msg);
@@ -35,8 +35,17 @@ export class HomePage {
    this.socket.on('sValue', (value) => {
        this.slideValueBadge.push(value);
        this.rangeSettings = value;
+       b = value;
        console.log("sliderValue:", value);
    });
+  }
+
+  slampa() {
+      this.socket.emit('innafia', b);
+  }
+
+  stopslampa() {
+      this.socket.emit('stopslampa');
   }
 
   send(msg) {
