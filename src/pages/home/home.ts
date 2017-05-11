@@ -13,13 +13,14 @@ export class HomePage {
   chat_input:string;
   chats = [];
   prova = [];
+  photoValue = [];
   rangeSettings:number;
   slideValueBadge = [];
 
 
   constructor(public navCtrl: NavController) {
    
-   this.socket = io('http://192.168.1.3:3000');
+   this.socket = io('http://192.168.1.21:3000');
       this.socket.on('message', (msg) => {
      console.log("message", msg);
      this.chats.push(msg);
@@ -30,6 +31,11 @@ export class HomePage {
        a = msgProva;
        this.rangeSettings = msgProva;
        this.prova.push(msgProva);
+   });
+
+   this.socket.on('photo', (value) => {
+       console.log("Luminosità: ", value);
+       this.photoValue.push(value);
    });
 
    this.socket.on('sValue', (value) => {

@@ -1,35 +1,70 @@
 ﻿
   <ion-header>
-      <ion-item>
+    <ion-navbar>
       <ion-avatar item-left>
         <img src="resources/android/icon/drawable-ldpi-icon.png">
       </ion-avatar>
-      <h2>DEMETRA</h2>
-      <p>Smart irrigation system</p>
-      </ion-item>
+      <ion-title item-right>
+        DEMETRA - Smart Irrigation System
+      </ion-title>
+    </ion-navbar>
   </ion-header>
-  <ion-content class="outer-content">
+  <ion-content padding>
     <ion-list>
       <ion-list-header>
-        Flusso d'acqua (s)
+        CONTROLLO POMPA ACQUA
       </ion-list-header>
-      <ion-badge color="secondary">{{slideValueBadge[slideValueBadge.length -1]}}</ion-badge>
       <ion-item>
-        <ion-range [(ngModel)]="rangeSettings" (ionChange)="cValue($event, 'slider1')" pin="true" min="20" max="500">
+        <ion-range [(ngModel)]="rangeSettings" (ionChange)="cValue($event, 'slider1')" pin="true" step="1" snaps="true" min="1" max="15">
           <ion-icon range-left small name="water"></ion-icon>
           <ion-icon range-right name="water"></ion-icon>
         </ion-range>
-
       </ion-item>
-    </ion-list>
-    <button ion-button block color="secondary" (click)='slampa();'>AVVIA IRRIGAZIONE</button>
-    <!--<ion-list>
-      <ion-item *ngFor="let message of chats">{{message}}</ion-item>
-    </ion-list>
+      <ion-item>
+        <ion-icon name='water' item-left style="color: rgb(57, 177, 14)">{{slideValueBadge[slideValueBadge.length -1]}} sec di irrigazione</ion-icon>
+        <ion-badge color="secondary"></ion-badge>
+      </ion-item>
+     </ion-list>
+    <p>
+      <button ion-button block color="secondary" (click)='slampa();'>AVVIA IRRIGAZIONE</button>
+    </p>
 
-    <ion-item>
-      <ion-input type="text" [(ngModel)]="chat_input" placeholder="Enter message"></ion-input>
-    </ion-item>
 
-    <button ion-button block (click)="send(chat_input)">Send</button>-->
+
+        <!--<ion-card>
+          <img src="img/mud.jpeg" />
+          <div class="cardBlur">
+            <div class="card-title">TERRAIN HUMIDITY</div>
+            <div class="card-subtitle">41</div>
+          </div>
+        </ion-card>
+
+
+        <ion-card>
+          <img src="img/humidity.jpg" />
+          <div class="cardBlur">
+            <div class="card-title">AMBIENT HUMIDITY</div>
+            <div class="card-subtitle">41</div>
+          </div>
+        </ion-card>
+
+
+        <ion-card>
+          <img src="img/temp.jpg" />
+          <div class="cardBlur">
+            <div class="card-title">TEMPERATURE</div>
+            <div class="card-subtitle">41</div>
+          </div>
+        </ion-card>-->
+
+
+        <ion-card>
+          <div class="cardBlur">
+            <img src="img/light.jpg" />
+            <div class="card-title">LIGHT AMOUNT</div>
+            <div class="card-subtitle">{{photoValue[photoValue.length -1]}}/100</div>
+          </div>
+        </ion-card>
+ 
+
 </ion-content>

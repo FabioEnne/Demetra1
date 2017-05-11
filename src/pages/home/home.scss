@@ -1,67 +1,104 @@
-page-home {
-    .center {
-        text-align: center;  
-    }
-    
-    .ionic-logo {
-      display: inline-flex;
-      position:relative;
-      width:87px;
-      height:87px;
-      border:3.5px solid #5E86C4;
-      border-radius:100%;
-      -moz-border-radius:100%;
-      -webkit-border-radius:100%;
-      -moz-animation: spin 2s infinite linear;
-      -webkit-animation: spin 2s infinite linear;
+﻿page-home {
+  .center {
+    text-align: center;
+  }
+
+  .ionic-logo {
+    display: inline-flex;
+    position: relative;
+    width: 87px;
+    height: 87px;
+    border: 3.5px solid #5E86C4;
+    border-radius: 100%;
+    -moz-border-radius: 100%;
+    -webkit-border-radius: 100%;
+    -moz-animation: spin 2s infinite linear;
+    -webkit-animation: spin 2s infinite linear;
+  }
+
+  .ionic-logo:after {
+    content: '';
+    position: absolute;
+    width: 38px;
+    height: 38px;
+    background: #5E86C4;
+    top: 50%;
+    left: 50%;
+    margin-left: -19px;
+    margin-top: -19px;
+    border-radius: 100%;
+    -moz-border-radius: 100%;
+    -webkit-border-radius: 100%;
+  }
+
+  .ionic-logo:before {
+    content: '';
+    background: #5E86C4;
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    margin-left: -7px;
+    border-radius: 100%;
+    -moz-border-radius: 100%;
+    -webkit-border-radius: 100%;
+  }
+
+
+
+  ion-card {
+    position: relative;
+    text-align: center;
+  }
+
+  .card-title {
+    position: absolute;
+    top: 33%;
+    font-size: 2.0em;
+    width: 90%;
+    left: 5%;
+    font-weight: bold;
+    color: #fff;
+    background: rgba(17,20,34,0.35);
+  }
+
+  .card-subtitle {
+    font-size: 1em;
+    position: absolute;
+    top: 78%;
+    left: 42%;
+    width: 17%;
+    color: #fff;
+    background: rgba(17,20,34,0.35);
+  }
+
+  ion-list + ion-list {
+    margin-top: 0;
+  }
+
+  .small-text {
+    font-size: 10px;
+  }
+
+
+  @-webkit-keyframes spin {
+    0% {
+      -webkit-transform: rotate(0deg);
     }
 
-    .ionic-logo:after {
-      content:'';
-      position:absolute;
-      width:38px;
-      height:38px;
-      background: #5E86C4;
-      top:50%;
-      left:50%;
-      margin-left:-19px;
-      margin-top:-19px;
-      border-radius:100%;
-      -moz-border-radius:100%;
-      -webkit-border-radius:100%;
+    100% {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+
+  @-moz-keyframes spin {
+    0% {
+      -moz-transform: rotate(0deg);
     }
 
-    .ionic-logo:before {
-      content:'';
-      background: #5E86C4;
-      width:14px;
-      height:14px;
-      position:absolute;
-      top:-8px;
-      left:50%;
-      margin-left:-7px;
-      border-radius:100%;
-      -moz-border-radius:100%;
-      -webkit-border-radius:100%;
+    100% {
+      -moz-transform: rotate(360deg);
     }
-
-    @-webkit-keyframes spin {
-        0% {
-            -webkit-transform: rotate(0deg);
-        }
-
-        100% {
-            -webkit-transform: rotate(360deg);
-        }
-    }
-
-    @-moz-keyframes spin {
-        0% {
-            -moz-transform: rotate(0deg);
-        }
-
-        100% {
-            -moz-transform: rotate(360deg);
-        }
-    }
+  }
 }
