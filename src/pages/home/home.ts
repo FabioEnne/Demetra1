@@ -14,7 +14,7 @@ export class HomePage {
   chats = [];
 
   constructor(public navCtrl: NavController) {
-      this.socket = io('http://192.168.1.5:3000');
+      this.socket = io('http://xxx:3000');
 
     this.socket.on('message', (msg) => {
       console.log("message", msg);
