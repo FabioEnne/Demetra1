@@ -1,70 +1,34 @@
 ﻿
   <ion-header>
     <ion-navbar>
-      <ion-avatar item-left>
-        <img src="resources/android/icon/drawable-ldpi-icon.png">
-      </ion-avatar>
       <ion-title item-right>
         DEMETRA - Smart Irrigation System
       </ion-title>
     </ion-navbar>
   </ion-header>
+
   <ion-content padding>
+    <ion-item>
+      <ion-range [(ngModel)]="rangeSettings" (ionChange)="cValue($event, 'slider1')" pin="true" step="1" snaps="true" min="1" max="15">
+        <ion-icon range-left small name="water"></ion-icon>
+        <ion-icon range-right name="water"></ion-icon>
+      </ion-range>
+    </ion-item>
     <ion-list>
       <ion-list-header>
-        CONTROLLO POMPA ACQUA
+        Piante:
       </ion-list-header>
       <ion-item>
-        <ion-range [(ngModel)]="rangeSettings" (ionChange)="cValue($event, 'slider1')" pin="true" step="1" snaps="true" min="1" max="15">
-          <ion-icon range-left small name="water"></ion-icon>
-          <ion-icon range-right name="water"></ion-icon>
-        </ion-range>
-      </ion-item>
-      <ion-item>
-        <ion-icon name='water' item-left style="color: rgb(57, 177, 14)">{{slideValueBadge[slideValueBadge.length -1]}} sec di irrigazione</ion-icon>
-        <ion-badge color="secondary"></ion-badge>
-      </ion-item>
+            <ion-avatar item-left>
+              <img src="img/rosma.jpg">
+            </ion-avatar>
+            <h2>Rosmarino</h2>
+            <h3>{{slideValueBadge[slideValueBadge.length -1]}} secondi di irrigazione.</h3>
+            <p>Luminosità ambientale: {{photoValue[photoValue.length -1]}}/100. </p>
+            <p>Umidità terreno: {{photoValue[photoValue.length -1]}}/100. </p>
+       </ion-item>
      </ion-list>
     <p>
       <button ion-button block color="secondary" (click)='slampa();'>AVVIA IRRIGAZIONE</button>
     </p>
-
-
-
-        <!--<ion-card>
-          <img src="img/mud.jpeg" />
-          <div class="cardBlur">
-            <div class="card-title">TERRAIN HUMIDITY</div>
-            <div class="card-subtitle">41</div>
-          </div>
-        </ion-card>
-
-
-        <ion-card>
-          <img src="img/humidity.jpg" />
-          <div class="cardBlur">
-            <div class="card-title">AMBIENT HUMIDITY</div>
-            <div class="card-subtitle">41</div>
-          </div>
-        </ion-card>
-
-
-        <ion-card>
-          <img src="img/temp.jpg" />
-          <div class="cardBlur">
-            <div class="card-title">TEMPERATURE</div>
-            <div class="card-subtitle">41</div>
-          </div>
-        </ion-card>-->
-
-
-        <ion-card>
-          <div class="cardBlur">
-            <img src="img/light.jpg" />
-            <div class="card-title">LIGHT AMOUNT</div>
-            <div class="card-subtitle">{{photoValue[photoValue.length -1]}}/100</div>
-          </div>
-        </ion-card>
- 
-
-</ion-content>
+  </ion-content>
