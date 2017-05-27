@@ -5,6 +5,8 @@ import { NavController } from 'ionic-angular';
 import * as io from 'socket.io-client';
 var a;
 var b;
+var valv1 = "false";
+var valv2 = "false";
 var wateringTimeDecod;
 @Component({
   selector: 'page-home',
@@ -23,20 +25,23 @@ export class HomePage {
   constructor(public navCtrl: NavController, public loadingCtrl: LoadingController) {
      this.socket = io('http://2.35.113.223:3000');
      this.socket.on('photo', (value) => {
-         console.log("Luminosità: ", value);
+         //Debug purpose
+         //console.log("Luminosità: ", value);
          this.photoValue.push(value);
      });
      this.socket.on('sValue', (value) => {
          this.slideValueBadge.push(value);
          this.rangeSettings = value;
          b = value;
-         console.log("sliderValue:", value);
+         //Debug purpose
+         //console.log("sliderValue:", value); 
      });
      this.socket.on('wateringTime', (value) => {
          wateringTimeDecod = value / 1000;
          this.slideValueBadge.push(wateringTimeDecod);
          this.rangeSettings = wateringTimeDecod;
-         console.log("sliderValue:", value);
+         //Debug purpose
+         //console.log("sliderValue:", value);
      });
   }
   presentLoading() {
@@ -47,13 +52,28 @@ export class HomePage {
       }).present();
   }
 
+  piantAtt(event, name) {
+      if (name._elementRef.nativeElement.id == "valv1") {
+          valv1 = name._checked; 
+      }
+      if (name._elementRef.nativeElement.id == "valv2") {
+          valv2 = name._checked;
+      }
+      console.log(name._checked);
+      console.log(name._componentName);
+   };
+
   slampa() {
-      this.socket.emit('innafia', b);
+      this.socket.emit('innafia', b, { "valv1": valv1, "valv2": valv2 });
       this.presentLoading();
   }
+  acqua(event, button) {
+      console.log(button._elementRef.nativeElement.id);
+  };
 
   cValue(event, nome) {
-      console.log("SliderValue", event._valA);
+      //Debug purpose
+      //console.log("SliderValue", event._valA);
       this.socket.emit('sValue', event._valA);
   }
 }
