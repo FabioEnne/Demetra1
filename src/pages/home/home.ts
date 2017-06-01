@@ -9,8 +9,8 @@ var valv1 = "false";
 var valv2 = "false";
 var wateringTimeDecod;
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+    selector: 'page-home',
+    templateUrl: 'home.html'
 })
 export class HomePage {
   socket:any
@@ -77,4 +77,3 @@ export class HomePage {
       this.socket.emit('sValue', event._valA);
   }
 }
-
