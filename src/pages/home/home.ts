@@ -1,6 +1,5 @@
 ﻿import { Component } from '@angular/core';
 import { LoadingController } from 'ionic-angular';
-
 import { NavController } from 'ionic-angular';
 import * as io from 'socket.io-client';
 var a;
@@ -23,7 +22,7 @@ export class HomePage {
 
 
     constructor(public navCtrl: NavController, public loadingCtrl: LoadingController) {
-        this.socket = io('http://2.35.113.223:3000');
+        this.socket = io('http://192.168.1.21:3000');
         this.socket.on('photo', (value) => {
             //Debug purpose
             //console.log("Luminosità: ", value);
