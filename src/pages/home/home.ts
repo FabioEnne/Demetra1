@@ -12,15 +12,14 @@ var wateringTimeDecod;
     templateUrl: 'home.html'
 })
 export class HomePage {
-    socket: any
+    tabs: any;
+    socket: any;
     chat_input: string;
     chats = [];
     prova = [];
     photoValue = [];
     rangeSettings: number;
     slideValueBadge = [];
-
-
     constructor(public navCtrl: NavController, public loadingCtrl: LoadingController) {
         this.socket = io('http://192.168.1.21:3000');
         this.socket.on('photo', (value) => {
@@ -42,6 +41,7 @@ export class HomePage {
             //Debug purpose
             //console.log("sliderValue:", value);
         });
+
     }
     presentLoading() {
         this.loadingCtrl.create({
